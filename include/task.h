@@ -12,7 +12,7 @@ class Task {
   void update() {
     if (_period > 0) {
       const uint32_t timeLeft = millis() - _timer;
-      if (timeLeft >= _period) {
+      if (timeLeft >= static_cast<uint32_t>(_period)) {
         _timer += _period * (timeLeft / _period);
         run();
       }
